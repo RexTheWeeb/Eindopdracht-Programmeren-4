@@ -1,6 +1,7 @@
-import '../css/style.css'
-import { Actor, Engine, Vector, DisplayMode } from "excalibur"
-import { Resources, ResourceLoader, randomIndex } from './resources.js'
+import '../css/style.css';
+import { Actor, Engine, Vector, DisplayMode } from "excalibur";
+import { Resources, ResourceLoader, randomIndex } from './resources.js';
+import { Fish } from './fish.js';
 
 export class Game extends Engine {
 
@@ -16,22 +17,11 @@ export class Game extends Engine {
 
     startGame() {
         console.log("start de game!")
-        // fish.events.on("exitviewport", (e) => this.fishLeft(e))
-   
-        for (let index = 0; index <= 99; index++) {
-            const fish = new Actor()
-            
-            fish.graphics.use(Resources.Doro.toSprite())
-            fish.pos = new Vector(Math.random() * 1280, Math.random() * 720)
-            fish.vel = new Vector(Math.random() * 200 - 100, Math.random() * 200 - 100)
-            this.add(fish);
-            fish.events.on("exitviewport", (e) => this.fishLeft(e));
-        }
+        const fish = new Fish();
+        this.add(fish);
     }
 
-    fishLeft(e) {
-        e.target.pos = new Vector(Math.random() * 1280, Math.random() * 720)
-    }
+    
 }
 
 new Game()
