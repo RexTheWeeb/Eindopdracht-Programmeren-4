@@ -1,11 +1,11 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
+import { FishingRod } from './fishingRod'
 
-// voeg hier jouw eigen resources toe
-const Resources = {
-    Doro: new ImageSource('images/Doro.png'),
-    Crewmate: new ImageSource('images/Crewmate.png'),
-    Nishiki: new ImageSource('images/nishiki.jpg'),
+let Resources = {
+    FishingRod: new ImageSource('images/fishingRod.png'),
     Fish: new ImageSource('images/fish.png'),
+    Bubble: new ImageSource('images/bubble.png'),
+    BoneFish: new ImageSource('images/bones.png'),
 }
 
 
