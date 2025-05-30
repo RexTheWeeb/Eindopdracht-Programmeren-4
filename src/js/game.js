@@ -26,7 +26,6 @@ export class Game extends Engine {
         this.start(ResourceLoader).then(() => this.startGame());
     }
 
-
     spawnFishes() {
         for (let i = 0; i < 14; i++) {
             let fish;
@@ -100,4 +99,3 @@ export class Game extends Engine {
 
 new Game()
 
-// if (event.other.owner)

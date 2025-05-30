@@ -14,7 +14,7 @@ export class FishingRod extends Actor {
             
         })
         this.game = game;
-    }
+    } 
 
     onInitialize(engine) {
         this.graphics.use(Resources.FishingRod.toSprite());
@@ -45,7 +45,6 @@ export class FishingRod extends Actor {
         if (engine.input.keyboard.isHeld(Keys.Up)) {
              yspeed = -300;
         }
-
         if (engine.input.keyboard.isHeld(Keys.Down)) {
             yspeed = 300;
         }
@@ -80,6 +79,6 @@ export class FishingRod extends Actor {
                 });
             }
         }
-    }
+    } 
 
 }

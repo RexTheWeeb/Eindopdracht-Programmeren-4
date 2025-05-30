@@ -30,7 +30,6 @@ export class Fish extends Actor {
             this.graphics.flipHorizontal = false;
         }
     }
-
     hook(onMiss) {
         if (this.isHooked) {
             return;
@@ -45,7 +44,7 @@ export class Fish extends Actor {
                 this.kill();
                if (onMiss) onMiss();
             }
-        }, 3000);
+        }, 1000);
     }
 
     catch() {
