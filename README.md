@@ -1,25 +1,15 @@
-# Excalibur Startproject 2025
 
-- Vanaf de HR repository: klik op ***USE THIS TEMPLATE***. Kies jouw eigen github account. 
-- Kopieer de `git url` van jouw eigen repository (dit vind je onder de "code" button).
-- Open VS Code. Klik op "file" en kies "clone repository".
-- Npm start Vite met een eigen webserver, dus sla het project NIET op in je XAMPP of HERD folder waar al een webserver draait.
-- Typ `npm install` en `npm run dev` in de terminal in VS Code.
-- Installeer de [Chrome Excalibur Debugger](https://chromewebstore.google.com/detail/excalibur-dev-tools/dinddaeielhddflijbbcmpefamfffekc)
-- [Bekijk het instructie filmpje!](https://youtu.be/UIVpe4L5_P4)
+The Fishing Game Of All Time - Dani Van't Woudt - Eindopdracht Programmeren 4.
 
-### Kies een resolutie
+Een vis spel waar je probeert een hoge score te halen door zo veel mogelijk vissen te vangen terwijl je vuilnis in het water vermijdt.
 
-***widescreen 16/9***
-- 640 × 360
-- 800 x 450
-- 1280 x 720
+Spelinstructies:
 
-***retro 4/3***
-- 512 × 384
-- 640 × 480
-- 800 × 600
+- Click op het water om een dobber te gooien.
+- Beweeg de dobber met de pijltjes toetsen.
+- Als je in aanraking komt met een schaduw klik op spatie binnen 1 seconde.
+- Als je op tijd heb geklikt krijg je punten voor de soort vis, minpunten als je vuilnis opvist.
+- Het spel eindigt zodra er geen vissen meer op het scherm zitten.
 
-### Bewerk deze readme file
 
-Verwijder deze instructies, plaats hier een beschrijving van jouw game.
+

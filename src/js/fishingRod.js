@@ -4,7 +4,7 @@ import { Fish } from "./fish.js"
 
 
 export class FishingRod extends Actor {
-    hookedFish = null;
+    #hookedFish = null;
 
     constructor(pos, game) {
         super({
@@ -21,11 +21,11 @@ export class FishingRod extends Actor {
         this.on("collisionstart", (event) => this.handleCollision(event));
 
         engine.input.keyboard.on('press', (evt) => {
-            if (evt.key === Keys.Space && this.hookedFish && this.hookedFish.isHooked) {
-                const points = typeof this.hookedFish.getPoints === "function" ? this.hookedFish.getPoints() : 1;
-                this.hookedFish.catch();
+            if (evt.key === Keys.Space && this.#hookedFish && this.#hookedFish.isHooked) {
+                const points = typeof this.#hookedFish.getPoints === "function" ? this.#hookedFish.getPoints() : 1;
+                this.#hookedFish.catch();
                 this.game.addScore(points);
-                this.hookedFish = null;
+                this.#hookedFish = null;
                 this.graphics.opacity = 1;
                 this.kill();
             }
@@ -34,6 +34,11 @@ export class FishingRod extends Actor {
     }
 
     onPreUpdate(engine) {
+
+        if (this.#hookedFish) {
+            this.vel = Vector.Zero;
+            return;
+        }
         let xspeed = 0
         let yspeed = 0
 
@@ -53,16 +58,24 @@ export class FishingRod extends Actor {
             xspeed = 300;
         }
         this.vel = new Vector(xspeed, yspeed);
+
+        const minX = 0;
+        const minY = 0;
+        const maxX = engine.drawWidth - this.width;
+        const maxY = engine.drawHeight - this.height;
+
+        this.pos.x = Math.max(minX, Math.min(this.pos.x, maxX));
+        this.pos.y = Math.max(minY, Math.min(this.pos.y, maxY));
     }
 
     handleCollision(event) {
         if (event.other.owner instanceof Fish) {
             const fish = event.other.owner;
-            if (!fish.isHooked && !this.hookedFish) {
-                this.hookedFish = fish;
+            if (!fish.isHooked && !this.#hookedFish) {
+                this.#hookedFish = fish;
                 this.graphics.opacity = 0.5;
                 fish.hook(() => {
-                    this.hookedFish = null;
+                    this.#hookedFish = null;
                     this.graphics.opacity = 1;
                 });
             }
