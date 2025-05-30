@@ -35,7 +35,7 @@ export class LionFish extends Fish {
     }
 
     getPoints() {
-        return 3;
+        return 5;
     }
 
     onPreUpdate(engine) {
